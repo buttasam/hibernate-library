@@ -9,8 +9,8 @@
         <property name="connection.username">root</property>
         <property name="connection.password"></property>
 
-        <mapping class="hibernate.AuthorEntity"/>
-        <mapping class="hibernate.BookEntity"/>
+        <mapping class="hibernate.entity.AuthorEntity"/>
+        <mapping class="hibernate.entity.BookEntity"/>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->
     </session-factory>

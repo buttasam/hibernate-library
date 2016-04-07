@@ -1,4 +1,4 @@
-package hibernate;
+package hibernate.entity;
 
 import javax.persistence.*;
 
@@ -6,10 +6,10 @@ import javax.persistence.*;
  * Created by samik on 6.4.16.
  */
 @Entity
-@Table(name = "book")
-public class BookEntity {
+@Table(name = "author", schema = "eja-library", catalog = "")
+public class AuthorEntity {
     private int id;
-    private String title;
+    private String name;
 
     @Id
     @Column(name = "id")
@@ -22,13 +22,13 @@ public class BookEntity {
     }
 
     @Basic
-    @Column(name = "title")
-    public String getTitle() {
-        return title;
+    @Column(name = "name")
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -36,10 +36,10 @@ public class BookEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        BookEntity that = (BookEntity) o;
+        AuthorEntity that = (AuthorEntity) o;
 
         if (id != that.id) return false;
-        if (title != null ? !title.equals(that.title) : that.title != null) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
 
         return true;
     }
@@ -47,7 +47,7 @@ public class BookEntity {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
     }
 }
