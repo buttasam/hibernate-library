@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - eja-library@localhost" uuid="3ee700e7-81aa-4279-85cc-336e90e39927">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>eja-library.*</schema-pattern>
+      <default-schemas>eja-library.*</default-schemas>
+    </data-source>
+  </component>
+</project>
