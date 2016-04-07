@@ -16,12 +16,18 @@ public class Main {
         BookDAO dao = new BookDAO();
 
         BookEntity entity = dao.findById("1");
-        ArrayList<AuthorEntity> authors = new ArrayList<AuthorEntity>(entity.getAuthors());
+        Set<AuthorEntity> authors =entity.getAuthors();
 
         System.out.println(entity.getTitle());
 
+        Set<BookEntity> books;
         for (AuthorEntity a : authors) {
-            System.out.println(a.getName());
+            System.out.println("autor: " + a.getName());
+            books = a.getBooks();
+
+            for(BookEntity b : books) {
+                System.out.println("--> " + b.getTitle());
+            }
         }
 
     }

@@ -1,6 +1,7 @@
 package hibernate.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by samik on 6.4.16.
@@ -10,6 +11,7 @@ import javax.persistence.*;
 public class AuthorEntity {
     private int id;
     private String name;
+    private Set<BookEntity> books;
 
     @Id
     @Column(name = "id")
@@ -30,6 +32,18 @@ public class AuthorEntity {
     public void setName(String name) {
         this.name = name;
     }
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @JoinTable(name="book_has_author", joinColumns=@JoinColumn(name="author_id"), inverseJoinColumns=@JoinColumn(name="book_id"))
+    public Set<BookEntity> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<BookEntity> authors)
+    {
+        this.books = authors;
+    }
+
 
     @Override
     public boolean equals(Object o) {
