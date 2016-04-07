@@ -1,18 +1,13 @@
 import hibernate.dao.BookDAO;
+import hibernate.entity.AuthorEntity;
 import hibernate.entity.BookEntity;
-import org.hibernate.HibernateException;
-import org.hibernate.SessionFactory;
-import org.hibernate.Session;
-import org.hibernate.Query;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-/**
- * Created by samik on 6.4.16.
- */
+
 public class Main {
 
     public static void main(final String[] args) throws Exception {
@@ -20,8 +15,14 @@ public class Main {
 
         BookDAO dao = new BookDAO();
 
-        BookEntity entity = new BookEntity("Super kniha");
+        BookEntity entity = dao.findById("1");
+        ArrayList<AuthorEntity> authors = new ArrayList<AuthorEntity>(entity.getAuthors());
 
-        dao.persist(entity);
+        System.out.println(entity.getTitle());
+
+        for (AuthorEntity a : authors) {
+            System.out.println(a.getName());
+        }
+
     }
 }

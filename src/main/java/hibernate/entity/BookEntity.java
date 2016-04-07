@@ -2,6 +2,8 @@ package hibernate.entity;
 
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by samik on 6.4.16.
@@ -11,6 +13,7 @@ import javax.persistence.*;
 public class BookEntity {
     private int id;
     private String title;
+    private Set<AuthorEntity> authors;
 
     public BookEntity() {
     }
@@ -33,6 +36,17 @@ public class BookEntity {
     @Column(name = "title")
     public String getTitle() {
         return title;
+    }
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @JoinTable(name="book_has_author", joinColumns=@JoinColumn(name="book_id"), inverseJoinColumns=@JoinColumn(name="author_id"))
+    public Set<AuthorEntity> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(Set<AuthorEntity> authors)
+    {
+        this.authors = authors;
     }
 
     public void setTitle(String title) {

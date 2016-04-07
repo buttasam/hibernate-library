@@ -10,7 +10,7 @@ public interface InterfaceDAO<T> {
 
     public void update(T entity);
 
-    public T findById(int id);
+    public T findById(String id);
 
     public void delete(T entity);
 
