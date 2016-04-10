@@ -1,6 +1,12 @@
+import hibernate.bean.LibraryBean;
 import hibernate.dao.BookDAO;
 import hibernate.entity.AuthorEntity;
 import hibernate.entity.BookEntity;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -11,24 +17,11 @@ import java.util.Set;
 public class Main {
 
     public static void main(final String[] args) throws Exception {
-        System.out.println("Test");
 
-        BookDAO dao = new BookDAO();
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        BookEntity entity = dao.findById("1");
-        Set<AuthorEntity> authors =entity.getAuthors();
-
-        System.out.println(entity.getTitle());
-
-        Set<BookEntity> books;
-        for (AuthorEntity a : authors) {
-            System.out.println("autor: " + a.getName());
-            books = a.getBooks();
-
-            for(BookEntity b : books) {
-                System.out.println("--> " + b.getTitle());
-            }
-        }
+        LibraryBean libraryBean = ctx.getBean(LibraryBean.class);
+        libraryBean.printAllBooks();
 
     }
 }

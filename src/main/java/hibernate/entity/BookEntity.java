@@ -22,6 +22,11 @@ public class BookEntity {
         this.title = title;
     }
 
+    public BookEntity(int id, String title) {
+        this.id = id;
+        this.title = title;
+    }
+
     @Id
     @Column(name = "id")
     public int getId() {
@@ -71,5 +76,10 @@ public class BookEntity {
         int result = id;
         result = 31 * result + (title != null ? title.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "title = '" + title;
     }
 }
