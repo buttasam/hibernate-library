@@ -4,19 +4,19 @@ package hibernate.bean;
 import hibernate.dao.AuthorDAO;
 import hibernate.dao.BookDAO;
 import hibernate.entity.BookEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 
 public class LibraryBean {
 
+    @Autowired
     public AuthorDAO authorDAO;
+
+    @Autowired
     public BookDAO bookDAO;
 
-    public LibraryBean() {
-        authorDAO = new AuthorDAO();
-        bookDAO = new BookDAO();
-    }
 
     public void addNewBook(String title) {
         bookDAO.persist(new BookEntity(title));

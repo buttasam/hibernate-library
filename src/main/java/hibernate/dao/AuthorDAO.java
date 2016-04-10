@@ -2,10 +2,11 @@ package hibernate.dao;
 
 import hibernate.entity.AuthorEntity;
 import hibernate.entity.BookEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
+@Service
 public class AuthorDAO extends AbstractDAO implements InterfaceDAO<AuthorEntity> {
 
     public void persist(AuthorEntity entity) {

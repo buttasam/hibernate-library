@@ -1,12 +1,11 @@
 import hibernate.bean.LibraryBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * Created by samik on 9.4.16.
- */
 
 @Configuration
+@ComponentScan("hibernate.dao")
 public class AppConfig {
 
     @Bean

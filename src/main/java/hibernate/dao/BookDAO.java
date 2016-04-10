@@ -6,11 +6,12 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.springframework.stereotype.Service;
 
 import java.awt.print.Book;
 import java.util.List;
 
-
+@Service
 public class BookDAO extends AbstractDAO implements InterfaceDAO<BookEntity>{
 
 

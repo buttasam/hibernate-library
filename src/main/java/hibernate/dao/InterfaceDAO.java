@@ -1,7 +1,6 @@
 package hibernate.dao;
 
 
-import java.io.Serializable;
 import java.util.List;
 
 public interface InterfaceDAO<T> {

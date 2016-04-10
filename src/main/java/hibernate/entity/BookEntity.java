@@ -2,12 +2,9 @@ package hibernate.entity;
 
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by samik on 6.4.16.
- */
+
 @Entity
 @Table(name = "book")
 public class BookEntity {
